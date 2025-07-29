@@ -1,4 +1,6 @@
+import api.AIEngine;
 import api.GameEngine;
+import api.RuleEngine;
 import gamestate.Board;
 import gamestate.Cell;
 import gamestate.Move;
@@ -12,27 +14,29 @@ public class Main {
         System.out.println("Welcome to the Tic Tac Toe Game!");
 
         GameEngine gameEngine = new GameEngine();
+        AIEngine aiEngine = new AIEngine();
+        RuleEngine ruleEngine = new RuleEngine();
         Board board = gameEngine.start("TicTacToe");
         int row,col;
         Scanner scanner = new Scanner(System.in);
 
         //make moves
-        while(!gameEngine.isComplete(board).isOver()) {
+        while(!ruleEngine.getState(board).isOver()) {
             Player computer = new Player("X");
             Player human = new Player("0");
             System.out.println("Make your move!");
             System.out.println(board);
             row = scanner.nextInt();
             col = scanner.nextInt();
-            Move oppMove = new Move(new Cell(row,col)); // Example move, replace with actual input logic
-            gameEngine.move(board, human, oppMove);
-            if(!gameEngine.isComplete(board).isOver()){
-                Move computerMove = gameEngine.suggestMove(computer,board);
-                gameEngine.move(board, computer, oppMove);
+            Move oppMove = new Move(new Cell(row,col), human); // Example move, replace with actual input logic
+            gameEngine.move(board,oppMove);
+            if(!ruleEngine.getState(board).isOver()){
+                Move computerMove = aiEngine.suggestMove(computer,board);
+                gameEngine.move(board, oppMove);
             }
 
         }
-        System.out.println("GameResult: "+gameEngine.isComplete(board));
+        System.out.println("GameResult: "+ruleEngine.getState(board));
         System.out.println(board);
 
         // Initialize board, game state, etc.
