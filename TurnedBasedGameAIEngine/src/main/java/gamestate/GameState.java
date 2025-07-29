@@ -1,4 +1,4 @@
-package main.java.api.gamestate;
+package main.java.gamestate;
 
 public class GameState {
     private boolean isOver = true;
