@@ -1,8 +1,8 @@
-package boards;
+package main.java.api.boards;
 
-import gamestate.Board;
-import gamestate.Cell;
-import gamestate.Move;
+import main.java.api.gamestate.Board;
+import main.java.api.gamestate.Cell;
+import main.java.api.gamestate.Move;
 
 public class TicTacToeBoard extends Board {
     String cells[][] = new String[3][3];

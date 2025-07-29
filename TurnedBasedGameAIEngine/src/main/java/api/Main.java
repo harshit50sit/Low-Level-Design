@@ -1,10 +1,12 @@
-import api.AIEngine;
-import api.GameEngine;
-import api.RuleEngine;
-import gamestate.Board;
-import gamestate.Cell;
-import gamestate.Move;
-import gamestate.Player;
+package main.java.api;
+
+import main.java.api.AIEngine;
+import main.java.api.GameEngine;
+import main.java.api.RuleEngine;
+import main.java.api.gamestate.Board;
+import main.java.api.gamestate.Cell;
+import main.java.api.gamestate.Move;
+import main.java.api.gamestate.Player;
 import java.util.*;
 
 public class Main {

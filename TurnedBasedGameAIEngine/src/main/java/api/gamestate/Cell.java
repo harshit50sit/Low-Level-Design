@@ -1,4 +1,4 @@
-package gamestate;
+package main.java.api.gamestate;
 
 public class Cell {
     int row, col;
