@@ -24,14 +24,15 @@ public class Main {
 
         //make moves
         while(!ruleEngine.getState(board).isOver()) {
-            Player computer = new Player("X");
-            Player human = new Player("0");
+            Player computer = new Player("O");
+            Player human = new Player("X");
             System.out.println("Make your move!");
             System.out.println(board);
             row = scanner.nextInt();
             col = scanner.nextInt();
             Move oppMove = new Move(new Cell(row,col), human); // Example move, replace with actual input logic
             gameEngine.move(board,oppMove);
+            System.out.println(board);
             if(!ruleEngine.getState(board).isOver()){
                 Move computerMove = aiEngine.suggestMove(computer,board);
                 gameEngine.move(board, oppMove);
