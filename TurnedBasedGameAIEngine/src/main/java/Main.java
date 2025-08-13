@@ -35,7 +35,7 @@ public class Main {
             System.out.println(board);
             if(!ruleEngine.getState(board).isOver()){
                 Move computerMove = aiEngine.suggestMove(computer,board);
-                gameEngine.move(board, oppMove);
+                gameEngine.move(board, computerMove);
             }
 
         }
